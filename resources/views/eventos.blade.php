@@ -24,21 +24,26 @@
     main {
         flex-grow: 1;
     }
-
-    @keyframes fadeInUp {
-        0% {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        100% {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    @keyframes fadeInUpScroll {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
     }
-
-    .animate-fade-in-up {
-        animation: fadeInUp 0.6s ease-out both;
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
+}
+.scroll-fade-in-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s ease-out;
+}
+.scroll-fade-in-up.active {
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeInUpScroll 0.6s ease-out both;
+}
 </style>
 
 </head>
@@ -86,5 +91,21 @@
 
 </main>
 <x-footer/>
+<script>
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, {
+        threshold: 0.15
+    });
+
+    document.querySelectorAll('.scroll-fade-in-up').forEach(el => {
+        observer.observe(el);
+    });
+</script>
+
 </body>
 </html>

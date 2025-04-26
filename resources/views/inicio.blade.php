@@ -5,10 +5,8 @@
     <title>Inicio - UAM</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Bootstrap 5 + Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
@@ -56,7 +54,6 @@
 <body class="bg-gray-100 text-gray-800">
 
 <x-navbar />
-    <!-- CARRUSEL CON IMÁGENES -->
     <div id="carouselValores" class="carousel slide mt-10 mx-auto w-11/12 md:w-3/4" data-bs-ride="carousel">
         <div class="carousel-inner rounded shadow-lg overflow-hidden">
             @foreach([
@@ -81,7 +78,6 @@
             @endforeach
         </div>
 
-        <!-- Botones personalizados -->
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselValores" data-bs-slide="prev">
             <span class="text-white text-4xl font-bold bg-black bg-opacity-50 px-3 py-1 rounded-full" aria-hidden="true">&#10094;</span>
             <span class="visually-hidden">Anterior</span>
@@ -128,9 +124,9 @@
 
     <x-footer />
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+
     // Detectar cuando un elemento entra en pantalla
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -139,10 +135,8 @@
             }
         });
     }, {
-        threshold: 0.2 // Cuando el 20% del elemento sea visible
+        threshold: 0.2 
     });
-
-    // Aplicar a todos los elementos con clase .scroll-fade-in-up
     document.querySelectorAll('.scroll-fade-in-up').forEach(element => {
         observer.observe(element);
     });
